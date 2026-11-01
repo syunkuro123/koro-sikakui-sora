@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>コロと四角い空｜MiniMax H3 で作った10分の短編アニメ</title>
+<meta name="description" content="まっしろな空に浮かぶ、箱でできた家。丸いロボットのコロが、抜け出した赤い箱キューをさがしに出かける10分の短編アニメです。">
+<meta name="theme-color" content="#f4eee3">
+<link rel="canonical" href="__SITE_URL__/">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="コロと四角い空">
+<meta property="og:description" content="MiniMax H3 で作った10分の短編アニメ">
+<meta property="og:url" content="__SITE_URL__/">
+<meta property="og:image" content="__SITE_URL__/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  --paper: #f4eee3;
+  --card: #fbf8f2;
+  --ink: #1f2747;
+  --ink-soft: #4a5170;
+  --coral: #c8452f;
+  --teal: #23705f;
+  --line: #e2d9c8;
+}
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+main { max-width: 1080px; margin: 0 auto; }
+header { margin: 8px 0 20px; }
+.eyebrow { color: var(--teal); font-weight: 700; font-size: 14px; letter-spacing: .04em; }
+h1 { font-size: clamp(30px, 6vw, 52px); line-height: 1.25; letter-spacing: .02em; margin-top: 4px; }
+.lead { color: var(--ink-soft); margin-top: 6px; }
+.player { background: #11131c; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 9; }
+video { display: block; width: 100%; height: 100%; background: #11131c; }
+.fallback { display: none; color: var(--ink-soft); margin-top: 10px; font-size: 14px; }
+.chapters { list-style: none; padding: 0; margin: 16px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.chapters button {
+  width: 100%; min-height: 48px; text-align: left; cursor: pointer;
+  font: inherit; font-size: 15px; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.chapters button:active { background: #efe7d8; }
+.chapters time { color: var(--coral); font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 8px; }
+section { margin-top: 36px; }
+h2 { font-size: 20px; margin-bottom: 8px; }
+.story { max-width: 42em; }
+dl.credits { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; font-size: 15px; }
+dl.credits dt { color: var(--ink-soft); }
+.note { font-size: 13px; color: var(--ink-soft); margin-top: 12px; }
+footer { margin-top: 48px; font-size: 13px; color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">MiniMax H3 × Google Colab</p>
+    <h1>コロと四角い空</h1>
+    <p class="lead">MiniMax H3 で作った、10分の短編アニメです。</p>
+  </header>
+
+  <div class="player">
+    <video id="film" controls playsinline preload="metadata" poster="poster.jpg"></video>
+  </div>
+  <p class="fallback" id="fallback">このブラウザでは再生できませんでした。<a href="https://drive.google.com/file/d/169lD_HOilTNhrp08LmAm5_wedYoOyT7c/view">Google ドライブで見る</a></p>
+
+  <ol class="chapters" aria-label="章">
+    <li><button type="button" data-t="0"><time>0:00</time>第1章　欠けた家</button></li>
+    <li><button type="button" data-t="119.5"><time>1:59</time>第2章　終わらない階段</button></li>
+    <li><button type="button" data-t="239"><time>3:59</time>第3章　六角のトンネル</button></li>
+    <li><button type="button" data-t="358.5"><time>5:58</time>第4章　さかさまの空</button></li>
+    <li><button type="button" data-t="478"><time>7:58</time>第5章　万華鏡の帰り道</button></li>
+  </ol>
+
+  <section>
+    <h2>あらすじ</h2>
+    <p class="story">まっしろな空に浮かぶ、27個の小さな箱でできた家。住んでいるのは、丸いロボットのコロです。ある夜、家のまんなかの赤い箱キューが抜け出して、家はかたむきはじめます。コロは、キューが残した赤い光のつぶを追って、まっしろな空へ飛び出します。</p>
+  </section>
+
+  <section>
+    <h2>作り方</h2>
+    <dl class="credits">
+      <dt>映像</dt><dd>MiniMax H3（Google Colab の A100 で生成）</dd>
+      <dt>台本・絵コンテ</dt><dd>Claude</dd>
+      <dt>章の頭の絵</dt><dd>ChatGPT Images（Codex）</dd>
+      <dt>ナレーション</dt><dd>VOICEVOX:No.7</dd>
+      <dt>音楽</dt><dd>Stable Audio 3</dd>
+      <dt>制作</dt><dd>すん（株式会社S.U.N）</dd>
+    </dl>
+    <p class="note">映像・絵・声・音楽はAIで作りました。75場面を8秒ずつ作り、前の場面の最後のコマから次の場面を始めてつないでいます。</p>
+  </section>
+
+  <footer>© 2026 株式会社S.U.N</footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
+<script>
+(function () {
+  var video = document.getElementById("film");
+  var src = "video/index.m3u8";
+  if (window.Hls && Hls.isSupported()) {
+    var hls = new Hls({ maxBufferLength: 30 });
+    hls.loadSource(src);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.ERROR, function (_e, data) {
+      if (data.fatal) document.getElementById("fallback").style.display = "block";
+    });
+  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = src;
+  } else {
+    document.getElementById("fallback").style.display = "block";
+  }
+  document.querySelectorAll(".chapters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      video.currentTime = parseFloat(b.dataset.t);
+      video.play();
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      video.scrollIntoView({ block: "center", behavior: calm ? "auto" : "smooth" });
+    });
+  });
+})();
+</script>
+</body>
+</html>
